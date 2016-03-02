@@ -19,7 +19,7 @@
     }
   ],
   "devDependencies": {
-    "browserify":    "3.2.2",
+    "browserify":    "~13.0",
     "coffee-script": "1.6.3",
     "expect.js":     "0.2.0",
     "jsdom":         "0.5.6",
@@ -28,6 +28,7 @@
   },
   "main": "./index.js",
   "scripts": {
+    "postinstall": "./node_modules/.bin/bower install",
     "build": "./node_modules/.bin/coffee -co . src && ./node_modules/.bin/browserify lib/enhance.js -o build/enhance.js",
     "test":  "./node_modules/.bin/mocha --reporter spec --timeout 4000 --ignore-leaks",
     "watch": "./node_modules/.bin/coffee -wo . src && ./node_modules/.bin/browserify lib/enhance.js -o build/enhance.js"
