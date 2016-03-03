@@ -29,7 +29,6 @@ Enhance = do ->
       breakpoint   = options["#{mobileDevice}Breakpoint"]
       window.matchMedia?("only screen and (max-width: #{breakpoint}px)").matches
 
-
     # Helper functions passed into init callbacks
     helpers =
       _:              _
@@ -42,7 +41,6 @@ Enhance = do ->
         regexp = new RegExp(/(.jpe?g|.png|.gif|.ti?ff?)/i)
         src    = src.replace(regexp, "#{options.suffix}$1") if isHiDPI()
         _.joinURIComponents(options.host, src)
-
 
     exports =
       isHiDPI:        isHiDPI
