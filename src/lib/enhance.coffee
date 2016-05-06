@@ -1,4 +1,5 @@
 _ = require('./lodash-ext')
+_.noConflict()
 
 Enhance = do ->
   (options) ->
