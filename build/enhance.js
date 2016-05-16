@@ -5,6 +5,8 @@
 
   _ = require('./lodash-ext');
 
+  _.noConflict();
+
   Enhance = (function() {
     return function(options) {
       var defaults, exports, helpers, isHiDPI, isMobileDevice, render;
