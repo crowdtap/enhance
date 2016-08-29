@@ -105,9 +105,7 @@ Custom callback function to use in place of the default `render` method. Passes
 in a helper object that makes available the following:
 
 * `isHiDPI`
-* `_` - [lodash](http://lodash.com) function with additional extensions:
-  * `joinURIComponents` - Joins any number of URI string component arguments
-  while preserving double slashes (i.e. the case of `http://`)
+* `joinURIComponents` - Joins any number of URI string component arguments while preserving double slashes (i.e. the case of `http://`)
 * `src` - String argument of `render`
 * Any and all other parameters passed upon initialization or the call to `render`
 
@@ -115,12 +113,12 @@ in a helper object that makes available the following:
 options =
   host: 'http://example.com/transform'
   suffix: '_2x'
-  render: (helpers) ->
-    if helpers.isHiDPI()
-      path = "#{encodeURIComponent(helpers.src)}/resize/#{helpers.width*2}x#{helpers.height*2}#"
+  render: (options) ->
+    if options.helpers.isHiDPI()
+      path = "#{encodeURIComponent(options.src)}/resize/#{options.width*2}x#{options.height*2}#"
     else
-      path = "#{encodeURIComponent(helpers.src)}/resize/#{helpers.width}x#{helpers.height}#"
-    helpers._.joinURIComponents(helpers.host, path)
+      path = "#{encodeURIComponent(options.src)}/resize/#{options.width}x#{options.height}#"
+    options.helpers.joinURIComponents(options.host, path)
 
 Enhance = require('enhance')(options)
 
