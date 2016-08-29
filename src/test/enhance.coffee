@@ -72,8 +72,9 @@ describe 'Enhance', ->
         it 'has helper methods available', (done) ->
           initOpts =
             render: (enhance) ->
-              expect(enhance._).to.be.a('function')
-              expect(enhance.isHiDPI).to.be.a('function')
+              console.log(Object.keys(enhance))
+              expect(enhance.helpers.joinURIComponents).to.be.a('function')
+              expect(enhance.helpers.isHiDPI).to.be.a('function')
               done()
 
           Enhance(initOpts).render('image.png')
