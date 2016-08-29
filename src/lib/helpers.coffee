@@ -30,8 +30,6 @@ helpers =
       only screen and (min-device-pixel-ratio: #{ratio}), \
       only screen and (min-resolution: #{ratio}dppx)"
 
-    if window.devicePixelRatio > ratio   then return true
-    if window.matchMedia?(query).matches then return true
-    return false
+    !!(window.devicePixelRatio > ratio || window.matchMedia?(query).matches)
 
 module.exports = helpers
