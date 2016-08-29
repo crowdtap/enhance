@@ -114,11 +114,11 @@ options =
   host: 'http://example.com/transform'
   suffix: '_2x'
   render: (options) ->
-    if helpers.isHiDPI()
-      path = "#{encodeURIComponent(helpers.src)}/resize/#{helpers.width*2}x#{helpers.height*2}#"
+    if options.helpers.isHiDPI()
+      path = "#{encodeURIComponent(options.src)}/resize/#{options.width*2}x#{options.height*2}#"
     else
-      path = "#{encodeURIComponent(helpers.src)}/resize/#{helpers.width}x#{helpers.height}#"
-    options.helpers.joinURIComponents(helpers.host, path)
+      path = "#{encodeURIComponent(options.src)}/resize/#{options.width}x#{options.height}#"
+    options.helpers.joinURIComponents(options.host, path)
 
 Enhance = require('enhance')(options)
 
