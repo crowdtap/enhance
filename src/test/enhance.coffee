@@ -72,7 +72,6 @@ describe 'Enhance', ->
         it 'has helper methods available', (done) ->
           initOpts =
             render: (enhance) ->
-              console.log(Object.keys(enhance))
               expect(enhance.helpers.joinURIComponents).to.be.a('function')
               expect(enhance.helpers.isHiDPI).to.be.a('function')
               done()
